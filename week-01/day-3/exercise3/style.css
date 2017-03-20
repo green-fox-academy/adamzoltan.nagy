@@ -1,0 +1,20 @@
+h1 {
+  color: #0007ec;
+}
+
+h2 {
+  color: #f2aa0a;
+}
+
+.list{
+  color: #0007ec;
+  list-style: square;
+}
+
+ul {
+  list-style: disc;
+}
+
+.apple {
+  color: red;
+}
