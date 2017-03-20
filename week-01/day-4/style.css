@@ -36,3 +36,26 @@ h1 {
 p {
   text-align: left;
 }
+
+.inlineBlock{
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.aboutme {
+  background-color: #bbb;
+  width: 29%;
+  float: left;
+  padding: 1%;
+  margin:1%;
+}
+
+.aboutme:hover {
+  color: #fff;
+  box-shadow: 4px 4px 2px #454545;
+  transition: .6s;
+}
+
+.clearfloat{
+  clear: left;
+}
