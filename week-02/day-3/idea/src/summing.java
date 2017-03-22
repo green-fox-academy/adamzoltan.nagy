@@ -10,7 +10,7 @@ public class summing {
     System.out.println(sum(num));
   }
   public static int sum (int p1) {
-    int sum = p1*(p1+1)/2;
-    return sum;
+    p1 = p1*(p1+1)/2;
+    return p1;
   }
 }

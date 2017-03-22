@@ -7,8 +7,8 @@ public class greeterFunction {
     System.out.println(greet(al));
   }
   public static String greet (String p1) {
-    String greet = "Greetings dear, " + p1;
-    return greet;
+    p1 = "Greetings dear, " + p1;
+    return p1;
   }
 
 }
