@@ -9,9 +9,7 @@ public class guessTheNumber {
 
     Random rand = new Random();
     int rnd = rand.nextInt(20) + 1;
-
-    System.out.println(rnd);
-
+    
     System.out.println("I thought of a number between 1 and 20! Ty to guess it!");
 
     int guess = 0;
