@@ -16,13 +16,13 @@ public class LinePlayQuarters {
 
     for (int i = 0; i < 300; i += 20) {
       graphics.setColor(Color.green);
-      graphics.drawLine(0 + i / 100,0 + i, 20 + i,300);
+      graphics.drawLine(0,0 + i, 20 + i,300);
       graphics.setColor(Color.blue);
-      graphics.drawLine(300-i / 100,300-i, 280-i,0);
+      graphics.drawLine(300,300 - i, 280 - i,0);
       graphics.setColor(Color.red);
-      graphics.drawLine(300 - i, 0 + i / 100,0, 20+i);
+      graphics.drawLine(300 - i, 0,0, 20 + i);
       graphics.setColor(Color.MAGENTA);
-      graphics.drawLine(0 + i,300 - i / 100,300,280-i);
+      graphics.drawLine(0 + i,300,300,280 - i);
     }
   }
 

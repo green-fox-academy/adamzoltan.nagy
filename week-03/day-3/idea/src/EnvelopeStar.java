@@ -12,10 +12,10 @@ public class EnvelopeStar {
 
     for (int i = 0; i < 150; i += 10) {
       graphics.setColor(Color.green);
-      graphics.drawLine(150 + i / 100,0 + i,150 + i,150);
-      graphics.drawLine(150 + i / 100,300 - i,150 + i,150);
-      graphics.drawLine(150 - i / 100,300 - i,150 - i,150);
-      graphics.drawLine(150 - i / 100,0 + i,150 - i,150);
+      graphics.drawLine(150,0 + i,150 + i,150);
+      graphics.drawLine(150,300 - i,150 + i,150);
+      graphics.drawLine(150,300 - i,150 - i,150);
+      graphics.drawLine(150,0 + i,150 - i,150);
     }
 
 
