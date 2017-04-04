@@ -9,7 +9,7 @@ public class Mentor extends Person {
 
   @Override
   public void introduce(){
-    System.out.println("Hi, I'm " + getName() + " a " + getAge() + " year old " + getGender() + level + " mentor.");
+    System.out.println("Hi, I'm " + getName() + " a " + getAge() + " year old " + getGender() + " " + level + " mentor.");
   }
 
   Mentor(String name, int age, String gender, String level) {

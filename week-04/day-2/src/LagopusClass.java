@@ -18,6 +18,7 @@ public class LagopusClass {
   }
 
   LagopusClass(String className){
+    this.className = className;
     students = new ArrayList<>();
     mentors = new ArrayList<>();
   }
