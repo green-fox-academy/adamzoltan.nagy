@@ -24,6 +24,10 @@ public class Animal {
     this.hunger ++ ;
   }
 
+  public int getHunger() {
+    return hunger;
+  }
+
   public void animalStat() {
     System.out.println(hunger);
     System.out.println(thirst);
