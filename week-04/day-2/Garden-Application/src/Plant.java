@@ -24,8 +24,8 @@ public class Plant {
     return absorbtion;
   }
 
-  public int getWaterLimit() {
-    int waterLimit;
+  public String getColor() {
+    return color;
   }
 
   public void setWaterLevel(double waterLevel) {
