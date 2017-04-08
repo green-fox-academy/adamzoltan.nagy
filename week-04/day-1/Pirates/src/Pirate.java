@@ -17,7 +17,14 @@ public class Pirate {
     System.out.println(name + " drank some spiced rum!");
   }
 
-
+  public void howsItGoingMate() {
+    if (getDrunknessLevel() <= 4) {
+      System.out.println("Pour me anudder!");
+    } else {
+      System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
+      setDrunknessLevel(0);
+    }
+  }
 
   public int getDrunknessLevel() {
     return drunknessLevel;
