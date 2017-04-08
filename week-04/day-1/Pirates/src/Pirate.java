@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 /**
  * Created by Adam on 2017. 04. 08..
  */
@@ -20,6 +22,7 @@ public class Pirate {
     else {
       System.out.println(name + " th' scurvy pirate be in Davy Jones' treasure chest.");
     }
+
   }
 
   public void howsItGoingMate() {
@@ -41,7 +44,29 @@ public class Pirate {
       System.out.println(name + " th' scurvy pirate died!");
     }
     else {
-      System.out.println(name + " th' scurvy pirate be already in Davy Jones' treasure chest");
+      System.out.println(name + " th' scurvy pirate be already in Davy Jones' treasure chest.");
+    }
+  }
+
+  public void brawl(Pirate pirate) {
+    if (pirate.isAlive()) {
+      int brawlResult = 1+  (int)(Math.random() * 3);
+      switch (brawlResult) {
+        case 1 :
+          pirate.die();
+          System.out.println(name + " th' scurvy pirate won th' sword fight!");
+          break;
+        case 2 :
+          die();
+          System.out.println(pirate.getName() + " th' scurvy pirate won th' sword fight!");
+          break;
+        case 3 :
+          die();
+          pirate.die();
+          break;
+      }
+    } else {
+      System.out.println(pirate.getName() + " th' scurvy pirate be already in Davy Jones' treasure chest." );
     }
   }
 
