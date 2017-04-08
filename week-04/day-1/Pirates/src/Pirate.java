@@ -13,16 +13,35 @@ public class Pirate {
   }
 
   public void drinkSomeRum() {
-    setDrunknessLevel(getDrunknessLevel() + 1);
-    System.out.println(name + " drank some spiced rum!");
+    if (isAlive()) {
+      setDrunknessLevel(getDrunknessLevel() + 1);
+      System.out.println(name + " drank some spiced rum!");
+    }
+    else {
+      System.out.println(name + " th' scurvy pirate be in Davy Jones' treasure chest.");
+    }
   }
 
   public void howsItGoingMate() {
-    if (getDrunknessLevel() <= 4) {
+    if (isAlive()) {
+      if (getDrunknessLevel() <= 4) {
       System.out.println("Pour me anudder!");
+      } else {
+        System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?\nZzzzzz");
+        setDrunknessLevel(0);
+      }
     } else {
-      System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
-      setDrunknessLevel(0);
+      System.out.println(name + " th' scurvy pirate be in Davy Jones' treasure chest.");
+    }
+  }
+
+  public void die() {
+    if (isAlive()) {
+      setAlive(false);
+      System.out.println(name + " th' scurvy pirate died!");
+    }
+    else {
+      System.out.println(name + " th' scurvy pirate be already in Davy Jones' treasure chest");
     }
   }
 
