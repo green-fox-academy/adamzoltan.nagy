@@ -7,11 +7,13 @@ public class Pirate {
   private String name;
   private int drunknessLevel;
   private boolean alive;
+  private boolean hasParrot;
 
   public Pirate (String name) {
     this.name = name;
     this.drunknessLevel = (0);
     this.alive = true;
+    this.hasParrot = false;
   }
 
   public void drinkSomeRum() {
@@ -70,6 +72,15 @@ public class Pirate {
     }
   }
 
+  public void addParrot() {
+    if (!isHasParrot()) {
+      setHasParrot(true);
+      System.out.println(name + " th' scurvy pirate now has a trusty parrot!");
+    } else {
+      System.out.println(name + " th' scurvy pirate already has a trusty parrot!");
+    }
+  }
+
   public int getDrunknessLevel() {
     return drunknessLevel;
   }
@@ -88,5 +99,13 @@ public class Pirate {
 
   public String getName() {
     return name;
+  }
+
+  public void setHasParrot(boolean hasParrot) {
+    this.hasParrot = hasParrot;
+  }
+
+  public boolean isHasParrot() {
+    return hasParrot;
   }
 }
