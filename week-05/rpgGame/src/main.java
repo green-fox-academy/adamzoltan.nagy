@@ -45,7 +45,9 @@ class Board extends JComponent implements KeyListener {
         }
       }
     }
-    graphics.fillRect(testBoxX, testBoxY, 72, 72);
+    //graphics.fillRect(testBoxX, testBoxY, 72, 72);
+    PositionedImage image = new PositionedImage("hero-down.png", testBoxX, testBoxY);
+    image.draw(graphics);
   }
 
   public static void main(String[] args) {
