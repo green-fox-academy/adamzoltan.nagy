@@ -9,8 +9,8 @@ class Board extends JComponent implements KeyListener {
   int testBoxY;
 
   public Board() {
-    testBoxX = 300;
-    testBoxY = 300;
+    testBoxX = 0;
+    testBoxY = 0;
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -19,16 +19,33 @@ class Board extends JComponent implements KeyListener {
 
   @Override
   public void paint(Graphics graphics) {
+    int [][] roadWalls = {
+            {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
+            {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
+            {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+            {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
+            {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
+            {0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
+            {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
+            {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
+            {0, 0, 0, 1, 0, 1, 1, 0, 1, 0},
+            {0, 1, 0, 1, 0, 1, 0, 0, 0, 0}
+    };
     super.paint(graphics);
-    graphics.fillRect(testBoxX, testBoxY, 72, 72);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
-    for (int i = 0; i < 10; i ++) {
+    for (int i = 0; i < 11; i ++) {
       for (int j = 0; j < 10; j++) {
-        PositionedImage image = new PositionedImage("floor.png", j * 72, i * 72);
-        image.draw(graphics);
+        if (roadWalls[i][j] == 0) {
+          PositionedImage image = new PositionedImage("floor.png", j * 72, i * 72);
+          image.draw(graphics);
+        } else { PositionedImage image = new PositionedImage("wall.png", j * 72, i * 72);
+          image.draw(graphics);
+        }
       }
     }
+    graphics.fillRect(testBoxX, testBoxY, 72, 72);
   }
 
   public static void main(String[] args) {
@@ -63,9 +80,9 @@ class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      testBoxY -= 100;
+      testBoxY -= 72;
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-      testBoxY += 100;
+      testBoxY += 72;
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
