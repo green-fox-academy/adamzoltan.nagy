@@ -16,7 +16,7 @@ class Board extends JComponent implements KeyListener {
     setPreferredSize(new Dimension(720, 720));
     setVisible(true);
   }
-
+  String hero = "hero-down.png";
   @Override
   public void paint(Graphics graphics) {
     int [][] roadWalls = {
@@ -30,12 +30,11 @@ class Board extends JComponent implements KeyListener {
             {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
             {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
             {0, 0, 0, 1, 0, 1, 1, 0, 1, 0},
-            {0, 1, 0, 1, 0, 1, 0, 0, 0, 0}
     };
     super.paint(graphics);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
-    for (int i = 0; i < 11; i ++) {
+    for (int i = 0; i < 10; i ++) {
       for (int j = 0; j < 10; j++) {
         if (roadWalls[i][j] == 0) {
           PositionedImage image = new PositionedImage("floor.png", j * 72, i * 72);
@@ -46,24 +45,8 @@ class Board extends JComponent implements KeyListener {
       }
     }
     //graphics.fillRect(testBoxX, testBoxY, 72, 72);
-    PositionedImage image = new PositionedImage("hero-down.png", testBoxX, testBoxY);
+    PositionedImage image = new PositionedImage(hero, testBoxX, testBoxY);
     image.draw(graphics);
-  }
-
-  public static void main(String[] args) {
-    // Here is how you set up a new window and adding our board to it
-    JFrame frame = new JFrame("RPG Game");
-    Board board = new Board();
-    frame.add(board);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setVisible(true);
-    frame.pack();
-    // Here is how you can add a key event listener
-    // The board object will be notified when hitting any key
-    // with the system calling one of the below 3 methods
-    frame.addKeyListener(board);
-    // Notice (at the top) that we can only do this
-    // because this Board class (the type of the board object) is also a KeyListener
   }
 
   // To be a KeyListener the class needs to have these 3 methods in it
@@ -82,11 +65,53 @@ class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      testBoxY -= 72;
+      if (testBoxY == 0) {
+        testBoxY = testBoxY;
+      } else {
+        testBoxY -= 72;
+      }
+      hero = "hero-up.png";
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-      testBoxY += 72;
+      if (testBoxY == 648) {
+        testBoxY = testBoxY;
+      } else {
+        testBoxY += 72;
+      }
+      hero = "hero-down.png";
+    } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+      if (testBoxX == 0) {
+        testBoxX = testBoxX;
+      } else {
+        testBoxX -= 72;
+      }
+      hero = "hero-left.png";
+    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      if (testBoxX == 648) {
+        testBoxX = testBoxX;
+      } else {
+        testBoxX += 72;
+      }
+      hero = "hero-right.png";
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
   }
+
+  public static void main(String[] args) {
+    // Here is how you set up a new window and adding our board to it
+    JFrame frame = new JFrame("RPG Game");
+    Board board = new Board();
+    frame.add(board);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+    frame.pack();
+    // Here is how you can add a key event listener
+    // The board object will be notified when hitting any key
+    // with the system calling one of the below 3 methods
+    frame.addKeyListener(board);
+    // Notice (at the top) that we can only do this
+    // because this Board class (the type of the board object) is also a KeyListener
+  }
+
+
 }
