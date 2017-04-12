@@ -11,4 +11,28 @@ public class Hero extends Characters {
     setSP(5 + rolld6());
     setLvl(1);
   }
+
+  @Override
+  public void moveUp() {
+    super.moveUp();
+    setPicture("hero-up.png");
+  }
+
+  @Override
+  public void moveDown() {
+    super.moveDown();
+    setPicture("hero-down.png");
+  }
+
+  @Override
+  public void moveLeft() {
+    super.moveLeft();
+    setPicture("hero-left.png");
+  }
+
+  @Override
+  public void moveRight() {
+    super.moveRight();
+    setPicture("hero-right.png");
+  }
 }

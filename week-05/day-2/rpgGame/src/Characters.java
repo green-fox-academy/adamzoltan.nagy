@@ -13,19 +13,26 @@ public class Characters extends GameObject {
   }
 
   public void moveUp () {
+    if (getPosY() != 0) {
     setPosY(getPosY() - 72);
+    }
   }
 
   public void moveDown () {
+    if (getPosY() != 648)
     setPosY(getPosY() + 72);
   }
 
   public void moveLeft () {
-    setPosX(getPosX() - 72);
+    if (getPosX() != 0) {
+      setPosX(getPosX() - 72);
+    }
   }
 
   public void moveRight () {
-    setPosX(getPosX() + 72);
+    if (getPosX() != 648) {
+      setPosX(getPosX() + 72);
+    }
   }
 
   public int rolld6 () {

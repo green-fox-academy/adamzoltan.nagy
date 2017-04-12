@@ -49,29 +49,13 @@ public class GameEngine extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      if (myHero.getPosY() == 0) {
-      } else {
-        myHero.moveUp();
-      }
-      myHero.setPicture("hero-up.png");
+      myHero.moveUp();
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-      if (myHero.getPosY() == 648) {
-      } else {
-        myHero.moveDown();
-      }
-      myHero.setPicture("hero-down.png");
+      myHero.moveDown();
     } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-      if (myHero.getPosX() == 00) {
-      } else {
-        myHero.moveLeft();
-      }
-      myHero.setPicture("hero-left.png");
+      myHero.moveLeft();
     } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      if (myHero.getPosX() == 648) {
-      } else {
-        myHero.moveRight();
-      }
-      myHero.setPicture("hero-right.png");
+      myHero.moveRight();
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
