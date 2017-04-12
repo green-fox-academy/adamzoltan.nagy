@@ -4,7 +4,7 @@
 public class Hero extends Characters {
 
   public Hero () {
-    super(0,0,"hero.png");
+    super(0,0,"hero-down.png");
     setMaxHP(20 + 3 * rolld6());
     setCurrentHP(getMaxHP());
     setDP(2 * rolld6());

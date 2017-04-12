@@ -7,44 +7,29 @@ import java.util.List;
 
 
 public class GameEngine extends JComponent implements KeyListener {
-
-  Graphics graphics;
-  int heroBoxX;
-  int heroBoxY;
-  int skeleMove = 0;
-  List<Integer> availableX;
-  List<Integer> availableY;
-  String skeletonName = "skeleton.png";
-  String heroPic = "hero-down.png";
-  String floor = "floor.png";
-  String wall = "wall.png";
-
+  Hero myHero = new Hero();
 
   public GameEngine() {
-    heroBoxX = 0;
-    heroBoxY = 0;
 
     setPreferredSize(new Dimension(720, 720));
     setVisible(true);
+
   }
 
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
 
-    availableX = new ArrayList<>();
-    availableY = new ArrayList<>();
-//    Monster monster = new Monster(graphics);
     GameMap map = new GameMap();
-    PositionedImage hero = new PositionedImage(heroPic, heroBoxX, heroBoxY);
-    PositionedImage skeleton = new PositionedImage(skeletonName, 0, 0);
-    PositionedImage floorTile = new PositionedImage(floor, 0, 0);
-    PositionedImage wallTile = new PositionedImage(wall, 0, 0);
+
 
     for (Tile temp : map.tileList) {
-      PositionedImage tiles = new PositionedImage(temp.picture, temp.getPosX() * 72, temp.getPosY() * 72);
+      PositionedImage tiles = new PositionedImage( temp.getPosX() * 72, temp.getPosY() * 72, temp.picture);
       tiles.draw(graphics);
     }
+
+
+    PositionedImage hero = new PositionedImage(myHero.getPosX(),myHero.getPosY(),myHero.getPicture());
     hero.draw(graphics);
 
   }
@@ -64,9 +49,29 @@ public class GameEngine extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-
+      if (myHero.getPosY() == 0) {
+      } else {
+        myHero.moveUp();
+      }
+      myHero.setPicture("hero-up.png");
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-
+      if (myHero.getPosY() == 648) {
+      } else {
+        myHero.moveDown();
+      }
+      myHero.setPicture("hero-down.png");
+    } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+      if (myHero.getPosX() == 00) {
+      } else {
+        myHero.moveLeft();
+      }
+      myHero.setPicture("hero-left.png");
+    } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      if (myHero.getPosX() == 648) {
+      } else {
+        myHero.moveRight();
+      }
+      myHero.setPicture("hero-right.png");
     }
     // and redraw to have a new picture with the new coordinates
     repaint();

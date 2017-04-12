@@ -13,19 +13,19 @@ public class Characters extends GameObject {
   }
 
   public void moveUp () {
-    setPosY(getPosY() - 1);
+    setPosY(getPosY() - 72);
   }
 
   public void moveDown () {
-    setPosY(getPosY() + 1);
+    setPosY(getPosY() + 72);
   }
 
   public void moveLeft () {
-    setPosX(getPosX() - 1);
+    setPosX(getPosX() - 72);
   }
 
   public void moveRight () {
-    setPosX(getPosX() + 1);
+    setPosX(getPosX() + 72);
   }
 
   public int rolld6 () {
