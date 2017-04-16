@@ -2,10 +2,17 @@
  * Created by Adam on 2017. 04. 16..
  */
 public abstract class Animal {
-  private String name;
-  private int age;
-  private String gender;
-  private int weight;
+  String name;
+  int age;
+  String gender;
+  int weight;
+
+  public Animal(String name, int age, String gender, int weight) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.weight = weight;
+  }
 
   public abstract void greet();
   public abstract void wantChild();
