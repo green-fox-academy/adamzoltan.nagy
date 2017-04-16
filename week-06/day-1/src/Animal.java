@@ -17,4 +17,5 @@ public abstract class Animal {
   public abstract void greet();
   public abstract void wantChild();
   public abstract void eat();
+  public abstract void move();
 }

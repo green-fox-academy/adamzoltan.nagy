@@ -1,11 +1,8 @@
-import javax.sound.midi.Soundbank;
-
 /**
  * Created by Adam on 2017. 04. 16..
  */
-public class Mammal extends Animal {
-
-  public Mammal(String name, int age, String gender, int weight) {
+public class Bird extends Animal {
+  public Bird (String name, int age, String gender, int weight) {
     super(name, age, gender,weight);
   }
 
@@ -16,7 +13,7 @@ public class Mammal extends Animal {
 
   @Override
   public void wantChild() {
-    System.out.println(" want a child from uterus!");
+    System.out.println(" want a child from an egg!");
   }
 
   @Override
@@ -26,6 +23,6 @@ public class Mammal extends Animal {
 
   @Override
   public void move() {
-    System.out.println(" is walking.");
+    System.out.println(" is flying.");
   }
 }
