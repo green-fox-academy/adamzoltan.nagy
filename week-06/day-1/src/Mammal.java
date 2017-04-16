@@ -15,8 +15,8 @@ public class Mammal extends Animal {
   }
 
   @Override
-  public void wantChild() {
-    System.out.println(" want a child from uterus!");
+  public String wantChild() {
+   return " want a child from uterus!";
   }
 
   @Override

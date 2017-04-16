@@ -12,8 +12,8 @@ public class Bird extends Animal {
   }
 
   @Override
-  public void wantChild() {
-    System.out.println(" want a child from an egg!");
+  public String wantChild() {
+    return " want a child from an egg!";
   }
 
   @Override
