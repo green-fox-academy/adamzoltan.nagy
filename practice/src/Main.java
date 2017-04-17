@@ -22,12 +22,12 @@ public class Main {
     pirateShip7.fillShip();
     pirateShip8.fillShip();
 
-    pirateShip1.logBook();
-    pirateShip2.logBook();
-
-    pirateShip1.battle(pirateShip2);
-    pirateShip1.logBook();
-    pirateShip2.logBook();
+//    pirateShip1.logBook();
+//    pirateShip2.logBook();
+//
+//    pirateShip1.battle(pirateShip2);
+//    pirateShip1.logBook();
+//    pirateShip2.logBook();
 
     Armada armada1 = new Armada();
     Armada armada2 = new Armada();

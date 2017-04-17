@@ -22,7 +22,7 @@ public class Ship {
 
   public void logBook() {
     int counter = 0;
-    System.out.println("The captain of tis ship drank " + ship.get(0).getDrunkness() + " glasses of rum.");
+    System.out.println("The captain of this ship drank " + ship.get(0).getDrunkness() + " glasses of rum.");
     System.out.println("The captain is " + (ship.get(0).isAwake() ? "awake" : "passed out") + " and " + (ship.get(0).isAlive() ? "alive." : "dead."));
     for (int i = 0; i < ship.size(); i++) {
       if (ship.get(i).isAlive()) {
