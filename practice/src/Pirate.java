@@ -40,7 +40,7 @@ public class Pirate {
           this.die();
           break;
         case 3:
-          die();
+          this.die();
           pirate.die();
           break;
       }
