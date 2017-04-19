@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 @Retention(RetentionPolicy.RUNTIME)
 @interface Monitor {
   String aspectratio() default  "4:3";
+  String classification() default "TFT";
 }
 
 @Monitor
