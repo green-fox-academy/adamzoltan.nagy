@@ -1,11 +1,11 @@
 /**
  * Created by Adam on 2017. 04. 21..
  */
-public enum CardSuit { CLUBS, DIAMONDS, HEARTS, SPADES;
+public enum CardSuit { HEARTS, DIAMONDS, CLUBS, SPADES ;
 
   static int enumSize = CardSuit.values().length;
 
-  static CardSuit getCardSuit() {
-    return CardSuit.values()[0];
+  static CardSuit getCardSuit(int i) {
+    return CardSuit.values()[i];
   }
 }

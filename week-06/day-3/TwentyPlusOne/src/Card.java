@@ -6,7 +6,7 @@ public class Card {
   CardSuit suit;
   CardRank rank;
 
-  public Card(CardColor color, CardSuit suit, CardRank rank) {
+  public Card( CardSuit suit, CardRank rank) {
     this.color = color;
     this.suit = suit;
     this.rank = rank;
@@ -35,4 +35,11 @@ public class Card {
   public void setRank(CardRank rank) {
     this.rank = rank;
   }
+
+  @Override
+  public String toString() {
+    String info = getRank() + " " + getSuit();
+    return info;
+  }
+
 }

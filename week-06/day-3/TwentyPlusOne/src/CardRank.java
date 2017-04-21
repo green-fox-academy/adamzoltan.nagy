@@ -5,8 +5,8 @@ public enum CardRank { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, J, 
 
   static int enumSize = CardRank.values().length;
 
-  static CardRank getCardSuit() {
-    return CardRank.values()[0];
+  static CardRank getCardRank(int i) {
+    return CardRank.values()[i];
   }
 
 }
