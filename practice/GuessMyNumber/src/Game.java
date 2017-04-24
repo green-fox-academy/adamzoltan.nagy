@@ -37,7 +37,7 @@ public class Game {
   public void guessTheNumber() {
     int n = thinkANumber();
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Try to guess the number between 1 and " + getRange());
+    System.out.println("Try to guess the number between 1 and " + getRange() +"\nYou can try " + getLives() + " times.");
     int guess = scanner.nextInt();
     while (guess != n && getLives() > 0) {
       if (guess < n) {
