@@ -25,6 +25,17 @@ public class Carrier {
     }
   }
 
+  public void fill() {
+    if (getStoredAmmo() == 0) {
+      System.out.println("The carrier is out of ammo");
+    } else {
+      for (int i = 0; i < carrier.size(); i++) {
+        carrier.get(i).refillAmmo(getStoredAmmo());
+        setStoredAmmo(getStoredAmmo() - carrier.get(i).getMaxAmmo());
+      }
+    }
+  }
+
   public void getStatus() {
     int totalDmg = 0;
     for (int i = 0; i < carrier.size(); i++) {
