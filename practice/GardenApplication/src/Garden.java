@@ -32,12 +32,11 @@ public class Garden {
     return counter;
   }
 
-  public void watering(int n) {
-    System.out.println("Watering with " + n);
-    int w = needsWater();
+  public void watering(int waterAmount) {
+    System.out.println("Watering with " + waterAmount);
     for (int i = 0; i < garden.size(); i++) {
       if (garden.get(i).getWaterLevel() < garden.get(i).getWaterLimit()) {
-        garden.get(i).setWaterLevel((n/w)*garden.get(i).getAbsorption());
+        garden.get(i).setWaterLevel((waterAmount/needsWater())*garden.get(i).getAbsorption());
       }
     }
   }
