@@ -28,6 +28,18 @@ public abstract class Aircraft {
     }
   }
 
+  public String getType() {
+    String type;
+    type = this.getClass().getName();
+    return type;
+  }
+
+  public void getStatus() {
+    String status;
+    status = "Type: " + getType() + ", Ammo: " + getCurrentAmmo() + ", Base Damage: " + getBaseDamage() + ", All Damage: " + getBaseDamage()*getCurrentAmmo();
+    System.out.println(status);
+  }
+
   public int getCurrentAmmo() {
     return currentAmmo;
   }
