@@ -19,6 +19,10 @@ public class GardenApp {
     myGarden.addPlant(tree2);
 
     myGarden.gardenStatus();
+    myGarden.watering(40);
+    myGarden.gardenStatus();
+    myGarden.watering(70);
+    myGarden.gardenStatus();
 
   }
 }
