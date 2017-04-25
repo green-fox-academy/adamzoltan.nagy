@@ -15,6 +15,16 @@ public class Carrier {
     this.healthPoint = healthPoint;
   }
 
+  public void addAircraft(String type) {
+    if (type.equals("F16")) {
+      Aircraft aircraft = new F16();
+      carrier.add(aircraft);
+    } else if (type.equals("F35")) {
+      Aircraft aircraft = new F35();
+      carrier.add(aircraft);
+    }
+  }
+
   public int getStoredAmmo() {
     return storedAmmo;
   }
