@@ -36,15 +36,30 @@ public class Carrier {
     }
   }
 
-  public void getStatus() {
+  public int totalDamage() {
     int totalDmg = 0;
     for (int i = 0; i < carrier.size(); i++) {
       totalDmg = totalDmg + carrier.get(i).currentDamage();
     }
-    System.out.println("Aircraft count: " + carrier.size() + ", Ammo Storage: " + getStoredAmmo() + ", Total Damage: " + totalDmg);
+    return totalDmg;
+  }
+
+  public void getStatus() {
+    System.out.println("Aircraft count: " + carrier.size() + ", Ammo Storage: " + getStoredAmmo() + ", Total Damage: " + totalDamage());
     System.out.println("Aircrafts:");
     for (int i = 0; i < carrier.size(); i++) {
       carrier.get(i).getStatus();
+    }
+    System.out.println();
+  }
+
+  public void fight(Carrier enemyCarrier) {
+    enemyCarrier.setHealthPoint((enemyCarrier.getHealthPoint()-totalDamage()));
+    if (enemyCarrier.getHealthPoint() <= 0) {
+      System.out.println("It's dead Jim :(");
+    }
+    for (int i = 0; i < carrier.size(); i++) {
+      carrier.get(i).fightAirstrike();
     }
   }
 
