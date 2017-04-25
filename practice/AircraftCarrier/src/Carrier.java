@@ -25,6 +25,18 @@ public class Carrier {
     }
   }
 
+  public void getStatus() {
+    int totalDmg = 0;
+    for (int i = 0; i < carrier.size(); i++) {
+      totalDmg = totalDmg + carrier.get(i).currentDamage();
+    }
+    System.out.println("Aircraft count: " + carrier.size() + ", Ammo Storage: " + getStoredAmmo() + ", Total Damage: " + totalDmg);
+    System.out.println("Aircrafts:");
+    for (int i = 0; i < carrier.size(); i++) {
+      carrier.get(i).getStatus();
+    }
+  }
+
   public int getStoredAmmo() {
     return storedAmmo;
   }

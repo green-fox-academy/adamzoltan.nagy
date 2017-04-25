@@ -12,10 +12,14 @@ public abstract class Aircraft {
     this.baseDamage = baseDamage;
   }
 
-  public int fightAirstrike() {
+  public int currentDamage() {
     int damage = getCurrentAmmo()*getBaseDamage();
-    setCurrentAmmo(0);
     return damage;
+  }
+
+  public int fightAirstrike() {
+    setCurrentAmmo(0);
+    return currentDamage();
   }
 
   public int refillAmmo(int ammo) {
