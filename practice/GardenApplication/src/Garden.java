@@ -34,9 +34,10 @@ public class Garden {
 
   public void watering(int waterAmount) {
     System.out.println("Watering with " + waterAmount);
+    int needsWater = needsWater();
     for (int i = 0; i < garden.size(); i++) {
       if (garden.get(i).getWaterLevel() < garden.get(i).getWaterLimit()) {
-        garden.get(i).setWaterLevel((waterAmount/needsWater())*garden.get(i).getAbsorption());
+        garden.get(i).setWaterLevel((waterAmount/needsWater)*garden.get(i).getAbsorption());
       }
     }
   }
