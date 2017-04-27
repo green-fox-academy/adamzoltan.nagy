@@ -49,15 +49,35 @@ public class BookShelf {
     return bookNumber;
   }
 
-  
+  public String favAuthor() {
+    String author = bookshelf.get(0).getAuthor();
+    int counter = 0;
+    for (int i = 0; i < bookshelf.size(); i++) {
+      int counter2 = 0;
+      for (int j = 0; j < bookshelf.size(); j++) {
+        if (bookshelf.get(i).getAuthor().equals(bookshelf.get(j).getAuthor())) {
+          counter2++;
+        }
+      }
+      if (counter2 > counter) {
+        counter = counter2;
+        author = bookshelf.get(i).getAuthor();
+      }
+    }
+    return author;
+  }
 
   public String toString() {
-    String info = ("You have " + bookshelf.size() + " books.\n" +
-            "Earliest released: " + bookshelf.get(earliestBook())+"\n" +
-            "Latest released: " + bookshelf.get(latestBook())+"\n" +
-            "Favourite author: " );
+    if (bookshelf.size() == 0) {
+      return "You have no books here\n";
+    } else {
+      String info = ("You have " + bookshelf.size() + " books.\n" +
+              "Earliest released: " + bookshelf.get(earliestBook()) + "\n" +
+              "Latest released: " + bookshelf.get(latestBook()) + "\n" +
+              "Favourite author: " + favAuthor());
 
-    return info;
+      return info;
+    }
   }
 
 }
