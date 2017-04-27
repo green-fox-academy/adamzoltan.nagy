@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,5 +24,25 @@ public class BookShelf {
       }
     }
   }
-  
+
+  public int earliestBook() {
+    int min = bookshelf.get(0).getReleaseYear();
+    for (int i = 0; i < bookshelf.size(); i++) {
+      if (bookshelf.get(i).getReleaseYear() < min) {
+        min = bookshelf.get(i).getReleaseYear();
+      }
+    }
+    return min;
+  }
+
+  public int latestBook() {
+    int max = bookshelf.get(0).getReleaseYear();
+    for (int i = 0; i < bookshelf.size(); i++) {
+      if (bookshelf.get(i).getReleaseYear() > max) {
+        max = bookshelf.get(i).getReleaseYear();
+      }
+    }
+    return max;
+  }
+
 }
