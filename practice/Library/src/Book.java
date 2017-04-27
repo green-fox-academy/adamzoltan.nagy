@@ -35,4 +35,10 @@ public class Book {
   public void setReleaseYear(int releaseYear) {
     this.releaseYear = releaseYear;
   }
+
+  @Override
+  public String toString() {
+    String bookInfo =(getAuthor() + " : " + getTitle() + " (" +getReleaseYear() + ")");
+    return bookInfo;
+  }
 }
