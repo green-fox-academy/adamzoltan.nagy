@@ -16,12 +16,12 @@ public class CAB {
     }
   }
 
-  public CAB() {
+  public CAB(CAB number) {
     this.randomNumber = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     System.out.println();
     int userInput = scanner.nextInt();
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < number.getLevel(); i++) {
       int temp = userInput % 10;
       randomNumber.add(temp);
       userInput = userInput / 10;
@@ -35,7 +35,7 @@ public class CAB {
     CAB number = new CAB(n);
     while (!victory) {
       int counter = 0;
-      CAB player = new CAB();
+      CAB player = new CAB(number);
       ArrayList<String> result = new ArrayList<>();
       for (int i = 0; i < n; i++) {
         result.add("");
@@ -66,5 +66,9 @@ public class CAB {
 
   public int getNumber(int n) {
     return randomNumber.get(n);
+  }
+
+  public int getLevel() {
+    return level;
   }
 }
