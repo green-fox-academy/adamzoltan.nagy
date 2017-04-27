@@ -9,7 +9,7 @@ public class BookShelf {
   private List<Book> bookshelf;
 
   public BookShelf() {
-    List<Book> bookshelf = new ArrayList<>();
+    this.bookshelf = new ArrayList<>();
   }
 
   public void addBook(String author, String title, int year ) {
@@ -27,22 +27,37 @@ public class BookShelf {
 
   public int earliestBook() {
     int min = bookshelf.get(0).getReleaseYear();
+    int bookNumber = 0;
     for (int i = 0; i < bookshelf.size(); i++) {
       if (bookshelf.get(i).getReleaseYear() < min) {
         min = bookshelf.get(i).getReleaseYear();
+        bookNumber = i;
       }
     }
-    return min;
+    return bookNumber;
   }
 
   public int latestBook() {
     int max = bookshelf.get(0).getReleaseYear();
+    int bookNumber = 0;
     for (int i = 0; i < bookshelf.size(); i++) {
       if (bookshelf.get(i).getReleaseYear() > max) {
         max = bookshelf.get(i).getReleaseYear();
+        bookNumber = i;
       }
     }
-    return max;
+    return bookNumber;
+  }
+
+  
+
+  public String toString() {
+    String info = ("You have " + bookshelf.size() + " books.\n" +
+            "Earliest released: " + bookshelf.get(earliestBook())+"\n" +
+            "Latest released: " + bookshelf.get(latestBook())+"\n" +
+            "Favourite author: " );
+
+    return info;
   }
 
 }
