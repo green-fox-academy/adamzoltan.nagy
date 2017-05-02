@@ -1,6 +1,7 @@
 package com.greenfoxacademy.controllers;
 
 import lombok.Data;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by Adam on 2017. 05. 02..
