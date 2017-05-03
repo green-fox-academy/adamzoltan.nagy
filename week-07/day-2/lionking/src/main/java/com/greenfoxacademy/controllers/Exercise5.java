@@ -18,11 +18,11 @@ public class Exercise5 {
   public String accountList(Model model ) {
     List<BankAccount> accounts = new ArrayList<>();
 
-    BankAccount symba = new BankAccount("Symba", 2000, "lion");
-    BankAccount timon = new BankAccount("Timon", 1500, "meerkat");
-    BankAccount pumba = new BankAccount("Pumba", 500, "warthog");
-    BankAccount rafiki = new BankAccount("Rafiki", 2000, "mandrill");
-    BankAccount zazu = new BankAccount("Zazu", 2500, "hornbill");
+    BankAccount symba = new BankAccount("Symba", 2000, "lion", true);
+    BankAccount timon = new BankAccount("Timon", 1500, "meerkat", false);
+    BankAccount pumba = new BankAccount("Pumba", 500, "warthog", false);
+    BankAccount rafiki = new BankAccount("Rafiki", 2000, "mandrill", false);
+    BankAccount zazu = new BankAccount("Zazu", 2500, "hornbill", false);
 
     accounts.add(symba);
     accounts.add(timon);
