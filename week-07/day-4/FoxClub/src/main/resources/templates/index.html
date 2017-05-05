@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
     <title>Fox Club</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
 </head>
 <body>
 <ul>
     <a href=""><li>Information</li></a>
 </ul>
 <img src="greenfox.png" alt="GreenFox"/>
-<p> This is Mr.Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+<p th:text ="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and lemonade.  He knows ' + ${tricknum} + ' tricks.'" />
 <h1> Known tricks</h1>
+<span th:if="${tricknum} == 0 " th:text="'You know no tricks. Go and learn some.'"></span>
 <ul>
-    <li>write HTML</li>
-    <li>code in Java</li>
+
 </ul>
 </body>
 </html>
