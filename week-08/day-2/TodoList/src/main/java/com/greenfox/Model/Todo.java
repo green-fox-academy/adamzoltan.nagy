@@ -23,4 +23,10 @@ public class Todo {
   private String title;
   private boolean isUrgent = false;
   private boolean isDone = false;
+
+  public Todo() {}
+
+  public String toString () {
+    return id + " : " + isUrgent + " " + isDone + " " + title;
+  }
 }

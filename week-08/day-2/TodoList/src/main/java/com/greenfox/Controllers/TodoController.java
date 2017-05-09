@@ -1,5 +1,6 @@
 package com.greenfox.Controllers;
 
+import com.greenfox.Model.Todo;
 import com.greenfox.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class TodoController {
 
   @RequestMapping({"/", "/list"})
   public String list(Model model) {
+    todoRepository.save(new Todo());
     model.addAttribute("todos", todoRepository.findAll());
     return "todolist";
   }
