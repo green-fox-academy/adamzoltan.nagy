@@ -9,8 +9,19 @@
      th:style="${account.king} ? 'color : gold' : 'color : black' ">
     <p th:text="${iterationStatus.count}+ '. ' + 'Name: ' + ${account.name} + ' Animal type: ' + ${account.animalType} + ' Balance: ' + ${#numbers.formatDecimal(account.balance, 0, 'COMMA', 2, 'POINT') + ' Zebra,'} + (${account.goodGuy} ? ' Good guy' : ' Bad guy')"/>
 
-    <form action="#" th:action="@{/add?id=} + ${iterationStatus.count}" th:object="${accounts}" method="post">
+    <form action="#" th:action="@{/increase?id=} + ${iterationStatus.count}" th:object="${accounts}" method="post">
         <button name="Add 10 zebras"> Add 10 zebras</button>
+    </form>
+</div>
+
+<div>
+    <form action ="#" th:action="@{/addAcc}" th:object="${accounts}" method="post">
+        <p>Name: <input type="text" th:name="name" /></p>
+        <p>Amimal Type: <input type="text" th:name="animalType"/></p>
+        <p>Balance: <input type="number" th:name="balance"/></p>
+        <p>King: <input type="checkbox" th:name="king"/></p>
+        <p>Good Guy: <input type="checkbox" th:name="goodGuy"/></p>
+        <p><input type="submit" value="Submit"/></p>
     </form>
 </div>
 

@@ -56,11 +56,18 @@ public class Exercise1Controller {
     model.addAttribute("list", accounts);
     return "index2";
   }
-@RequestMapping("/add")
+@RequestMapping("/increase")
   public String addZebras(@RequestParam("id") int id) {
     int increase = 10;
     int balance = accounts.get(id -1).getBalance();
     accounts.get(id - 1).setBalance(balance + increase);
+    return "redirect:/index2";
+}
+
+@RequestMapping("/addAcc")
+  public String addAcc(String name, String animalType, int balance, boolean king, boolean goodGuy ) {
+    BankAccount newAccount = new BankAccount(name, animalType, balance, king, goodGuy);
+    accounts.add(newAccount);
     return "redirect:/index2";
 }
 }
