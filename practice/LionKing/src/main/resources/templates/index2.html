@@ -8,8 +8,9 @@
 <div th:each="account, iterationStatus : ${list} "
      th:style="${account.king} ? 'color : gold' : 'color : black' ">
     <p th:text="${iterationStatus.count}+ '. ' + 'Name: ' + ${account.name} + ' Animal type: ' + ${account.animalType} + ' Balance: ' + ${#numbers.formatDecimal(account.balance, 0, 'COMMA', 2, 'POINT') + ' Zebra,'} + (${account.goodGuy} ? ' Good guy' : ' Bad guy')"/>
-    <form action="#" th:action="@{/index2}" th:object="${accounts}" method="processForm">
-        <input type="submit" value="Add 10 zebras"/>
+
+    <form action="#" th:action="@{/add?id=} + ${iterationStatus.count}" th:object="${accounts}" method="post">
+        <button name="Add 10 zebras"> Add 10 zebras</button>
     </form>
 </div>
 

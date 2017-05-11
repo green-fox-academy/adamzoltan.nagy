@@ -10,18 +10,22 @@ public class ListOfAccounts {
   private List<BankAccount> accountList;
 
   public ListOfAccounts() {
-    accountList = new ArrayList<>();
+    this.accountList = new ArrayList<>();
   }
 
   public void addAcount(BankAccount account) {
     accountList.add(account);
   }
 
+  public BankAccount get(int i) {
+    return accountList.get(i);
+  }
+
   public List<BankAccount> getAccountList() {
     return accountList;
   }
 
-  public void setAccountList(List<BankAccount> accountList) {
-    this.accountList = accountList;
-  }
 }
+
+
+
