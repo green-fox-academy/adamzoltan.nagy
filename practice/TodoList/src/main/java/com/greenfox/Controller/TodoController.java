@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 /**
  * Created by Adam on 2017. 05. 12..
@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/todo")
 public class TodoController {
 
+  private TodoRepository todoRepository;
+
   @Autowired
-  TodoRepository todoRepository;
+  public TodoController (TodoRepository todoRepository) {
+    this.todoRepository = todoRepository;
+  }
 
   @RequestMapping({"/", "/list"})
   public String list(Model model) {

@@ -12,6 +12,7 @@
         <li>Finish H2 workshop1</li>
         <li>Finish JPA workshop2</li>
         <li>Create CRUD project</li>
+        <li th:each = "todoline : ${todos}" th:text = "${todoline}">Todo</li>
     </ul>
 </body>
 </html>
