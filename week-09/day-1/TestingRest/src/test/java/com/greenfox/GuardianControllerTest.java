@@ -80,8 +80,17 @@ public class GuardianControllerTest {
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().is4xxClientError())
             .andExpect(content().contentType(contentType))
-            .andExpect(content()
-                    .json("{\"message\": \"I am Groot!\"}", true));
+            .andExpect(content().json("{\"message\": \"I am Groot!\"}", true));
+  }
+
+  @Test
+  public void RocketSuccesfullTest() throws Exception {
+    mockMvc.perform(get("/rocket")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(contentType))
+            .andExpect(content().json("{\"caliber25\": 0, \"caliber30\": 0,\"caliber50\": 0, \"shipStatus\": \"empty\",\"ready\": false }", true));
+
   }
 
 }
