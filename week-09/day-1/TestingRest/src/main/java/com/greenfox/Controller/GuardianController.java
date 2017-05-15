@@ -1,5 +1,6 @@
 package com.greenfox.Controller;
 
+import com.greenfox.Model.Calculation;
 import com.greenfox.Model.ErrorMessage;
 import com.greenfox.Model.OutputMessage;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class GuardianController {
 
-  @GetMapping ("/groot")
+  @GetMapping("/groot")
   public OutputMessage translate(@RequestParam("message") String message) {
   OutputMessage outputMessage = new OutputMessage();
   outputMessage.setRecieved(message);
@@ -23,5 +24,14 @@ public class GuardianController {
   @ResponseStatus(code = HttpStatus.I_AM_A_TEAPOT)
   public ErrorMessage errorMessage() {
     return new ErrorMessage("I am Groot!");
+  }
+
+  @GetMapping("/yondu")
+  public Calculation calculate(@RequestParam("distance")String distance, @RequestParam("time") String time) {
+    Calculation calculation = new Calculation();
+    calculation.setDistance(distance);
+    calculation.setTime(time);
+    calculation.calculateSpeed();
+    return calculation;
   }
 }

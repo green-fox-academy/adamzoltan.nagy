@@ -63,4 +63,25 @@ public class GuardianControllerTest {
             .andExpect(content()
                     .json("{\"message\": \"I am Groot!\"}", true));
   }
+
+  @Test
+  public void YonduSuccessfullTest() throws Exception {
+    mockMvc.perform(get("/yondu?distance=100.0&time=10.0")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(contentType))
+            .andExpect(content().json("{\"distance\": \"100.0\", \"time\": \"10.0\",\"speed\": \"10.0\" }", true));
+
+  }
+
+  @Test
+  public void YondutFailTest() throws Exception {
+    mockMvc.perform(get("/groot")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().is4xxClientError())
+            .andExpect(content().contentType(contentType))
+            .andExpect(content()
+                    .json("{\"message\": \"I am Groot!\"}", true));
+  }
+
 }
