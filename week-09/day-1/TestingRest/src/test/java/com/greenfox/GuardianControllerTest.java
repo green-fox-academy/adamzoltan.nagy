@@ -93,4 +93,13 @@ public class GuardianControllerTest {
 
   }
 
+  @Test
+  public void RocketFillSuccesfullTest() throws Exception {
+    mockMvc.perform(get("/rocket/fill?received=.50&amount=5000")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(contentType))
+            .andExpect(content().json("{\"received\": \".50\", \"amount\": 5000, \"shipStatus\": \"40%\", \"ready\": false }", true));
+  }
+
 }

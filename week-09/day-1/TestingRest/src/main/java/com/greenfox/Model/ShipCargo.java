@@ -1,43 +1,27 @@
 package com.greenfox.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Adam on 2017. 05. 15..
  */
+
 public class ShipCargo {
   private int caliber25 = 0;
   private int caliber30 = 0;
   private int caliber50 = 0;
-  @JsonIgnore
-  private Double received;
-  @JsonIgnore
-  private int amount;
   private String shipStatus = "empty";
   private Boolean ready = false;
   @JsonIgnore
   private int maxAmount = 12500;
 
-
   public ShipCargo() {
-
-  }
-
-  public void fillingShip(Double received, int amount) {
-    setReceived(received);
-    setAmount(getAmount() + amount);
-  }
-  public void changeStatus() {
-    int amount = (getAmount()*100)/getMaxAmount();
-    if(amount > 0 && amount < 100) {
-      setShipStatus(String.valueOf(amount));
-    }
-  }
-
-  public void changeReady() {
-    if(getShipStatus().equals("full")) {
-      setReady(true);
-    }
+    this.caliber25 = caliber25;
+    this.caliber30 = caliber30;
+    this.caliber50 = caliber50;
+    this.shipStatus = shipStatus;
+    this.ready = ready;
   }
 
   public int getCaliber25() {
@@ -79,26 +63,7 @@ public class ShipCargo {
   public void setReady(Boolean ready) {
     this.ready = ready;
   }
-  @JsonIgnore
-  public Double getRecieved() {
-    return received;
-  }
-  @JsonIgnore
-  public void setReceived(Double recieved) {
-    this.received = recieved;
-  }
-  @JsonIgnore
-  public int getAmount() {
-    return amount;
-  }
-  @JsonIgnore
-  public void setAmount(int amount) {
-    this.amount = amount;
-  }
 
-  public Double getReceived() {
-    return received;
-  }
   @JsonIgnore
   public int getMaxAmount() {
     return maxAmount;

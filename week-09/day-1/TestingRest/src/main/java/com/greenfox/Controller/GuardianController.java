@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class GuardianController {
 
 
+  ShipCargo shipCargo = new ShipCargo();
 
   @GetMapping("/groot")
   public OutputMessage translate(@RequestParam("message") String message) {
@@ -39,17 +40,15 @@ public class GuardianController {
 
   @GetMapping("/rocket")
   public ShipCargo cargoList(){
-    ShipCargo shipCargo = new ShipCargo();
     return shipCargo;
   }
 
   @GetMapping("/rocket/fill")
-  public ShipCargo fillShip(@RequestParam("recieved") Double recieved,
-                           @RequestParam("amouont")int amount){
-    ShipCargo shipCargo = new ShipCargo();
-   shipCargo.fillingShip(recieved,amount);
-   shipCargo.changeStatus();
-   shipCargo.changeReady();
-    return shipCargo;
+  public FillShip fillShip(@RequestParam("received") String received,
+                           @RequestParam("amount")int amount){
+    FillShip fillShip = new FillShip(received,amount);
+    fillShip.changeStatus();
+    fillShip.changeReady();
+    return fillShip;
   }
 }
