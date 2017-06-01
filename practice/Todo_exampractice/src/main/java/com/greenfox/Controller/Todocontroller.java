@@ -1,11 +1,11 @@
 package com.greenfox.Controller;
 
+import com.greenfox.Model.Todo;
 import com.greenfox.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Adam on 2017. 05. 31..
@@ -25,5 +25,18 @@ public class Todocontroller {
       model.addAttribute("todo", todoRepository.findAll());
     }
     return "index";
+  }
+
+  @RequestMapping("/addTodo")
+  public String addTodo() {
+    return "addTodo";
+  }
+
+  @RequestMapping("/saveTodo")
+  public String saveTodo(Model model, @RequestParam(name = "title", required = false) String text) {
+    if (text.length()>0) {
+      todoRepository.save(new Todo(text));
+    }
+    return "redirect:/todo/";
   }
 }
