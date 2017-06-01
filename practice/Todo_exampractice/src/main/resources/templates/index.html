@@ -19,6 +19,11 @@
       <td th:text="${todo.title}"></td>
       <td th:text="${todo.urgent}"></td>
       <td th:text="${todo.done}"></td>
+      <td>
+        <form th:action="@{/todo/delete/} + ${todo.Id}"  th:object="${todo}" method="post">
+          <input type="submit" value="Delete post"/>
+        </form>
+      </td>
     </tr>
   </table>
 </body>
