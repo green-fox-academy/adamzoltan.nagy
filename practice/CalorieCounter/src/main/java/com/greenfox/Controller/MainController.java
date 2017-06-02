@@ -1,6 +1,9 @@
 package com.greenfox.Controller;
 
+import com.greenfox.Repository.MealRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -9,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-  @RequestMapping
-  public String index() {
+  @Autowired
+  private MealRepository mealRepository;
 
+  @RequestMapping("/index")
+  public String index(Model model) {
+    model.addAttribute("meal", mealRepository.findAll());
     return "index";
   }
 }

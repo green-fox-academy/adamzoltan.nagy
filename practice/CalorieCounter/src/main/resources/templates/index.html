@@ -3,9 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <title>Calorie Counter</title>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
 </head>
 <body>
 <h1>Calorie Counter</h1>
-
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Meal Date</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Calories</th>
+    <th colspan="2">Functions</th>
+  </tr>
+  <tr th:each="meal : ${meal}">
+    <td th:text="${meal.id}"></td>
+    <td th:text="${meal.date}"></td>
+    <td th:text="${meal.type}"></td>
+    <td th:text="${meal.description}"></td>
+    <td th:text="${meal.calories}"></td>
+    <td>
+      <form th:action="@{/delete} "  th:object="${meal}" method="post">
+        <input type="submit" value="Delete"/>
+      </form>
+    </td>
+    <td>
+      <form th:action="@{/edit} "  th:object="${meal}" method="post">
+        <input type="submit" value="Edit"/>
+      </form>
+    </td>
+  </tr>
+</table>
 </body>
 </html>

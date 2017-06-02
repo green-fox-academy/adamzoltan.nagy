@@ -28,4 +28,10 @@ public class Meal {
   public Meal() {
   }
 
+  public Meal(String type, String description, double calories) {
+    date = new Date();
+    this.type = type;
+    this.description = description;
+    this.calories = calories;
+  }
 }
