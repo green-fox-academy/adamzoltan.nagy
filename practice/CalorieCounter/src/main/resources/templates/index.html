@@ -23,6 +23,10 @@
 </head>
 <body>
 <h1>Calorie Counter</h1>
+<form th:action="@{/edit} "  th:object="${meal}" method="post">
+  <input type="submit" value="Add new meal"/>
+</form>
+<p></p>
 <table>
   <tr>
     <th>ID</th>
