@@ -43,7 +43,7 @@
     <td th:text="${meal.description}"></td>
     <td th:text="${meal.calories}"></td>
     <td>
-      <form th:action="@{/delete} "  th:object="${meal}" method="post">
+      <form th:action="@{/deleteMeal/} + ${meal.id}"  th:object="${meal}" method="post">
         <input type="submit" value="Delete"/>
       </form>
     </td>

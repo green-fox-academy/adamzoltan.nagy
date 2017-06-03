@@ -6,6 +6,7 @@ import com.greenfox.Repository.MealTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,6 +39,12 @@ public class MainController {
                          @RequestParam (name="description") String description,
                          @RequestParam (name="calories") Double calories) {
     mealRepository.save(new Meal(type,description,calories));
+    return "redirect:/index";
+  }
+
+  @RequestMapping("/deleteMeal/{id}")
+  public String deleteMeal(@PathVariable("id") long id) {
+    mealRepository.delete(id);
     return "redirect:/index";
   }
 }
