@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ public class Meal {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO )
   private long id;
-  private Date date;
+  private LocalDate date;
   private String type;
   private String description;
   private double calories;
@@ -29,7 +30,7 @@ public class Meal {
   }
 
   public Meal(String type, String description, double calories) {
-    date = new Date();
+    date = LocalDate.now();
     this.type = type;
     this.description = description;
     this.calories = calories;
