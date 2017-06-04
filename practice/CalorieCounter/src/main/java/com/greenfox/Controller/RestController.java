@@ -1,11 +1,14 @@
 package com.greenfox.Controller;
 
+
+import com.greenfox.Model.Id;
 import com.greenfox.Model.Meal;
 import com.greenfox.Model.MealStatistics;
 import com.greenfox.Model.Status;
 import com.greenfox.Repository.MealRepository;
 import com.greenfox.Service.CalorieCounterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,5 +45,11 @@ public class RestController {
     mealStatistics.setTotalCalories(calorieCounterService.totalCalorie());
     mealStatistics.setNumberOfMeals(calorieCounterService.countMeals());
     return mealStatistics;
+  }
+
+  @DeleteMapping("/meal")
+  public Status deleteMeal(@RequestBody Id id) {
+    mealRepository.delete(id.getId());
+    return new Status();
   }
 }
