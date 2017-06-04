@@ -3,6 +3,7 @@ package com.greenfox.Controller;
 import com.greenfox.Model.Meal;
 import com.greenfox.Repository.MealRepository;
 import com.greenfox.Repository.MealTypeRepository;
+import com.greenfox.Service.CalorieCounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +23,14 @@ public class MainController {
   @Autowired
   private MealTypeRepository mealTypeRepository;
 
+  @Autowired
+  private CalorieCounterService calorieCounterService;
+
   @RequestMapping("/index")
   public String index(Model model) {
     model.addAttribute("meal", mealRepository.findAll());
+    model.addAttribute("sumCalorie", calorieCounterService.totalCalorie());
+    model.addAttribute("sumMeals", calorieCounterService.countMeals());
     return "index";
   }
 

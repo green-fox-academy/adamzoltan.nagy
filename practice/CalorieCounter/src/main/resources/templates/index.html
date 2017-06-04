@@ -23,6 +23,7 @@
 </head>
 <body>
 <h1>Calorie Counter</h1>
+<h3 th:text="' Number of meals: ' + ${sumMeals} + 'Total calories: ' + ${sumCalorie}"></h3>
 <form th:action="@{/addMeal} "  th:object="${meal}" method="post">
   <input type="submit" value="Add new meal"/>
 </form>
