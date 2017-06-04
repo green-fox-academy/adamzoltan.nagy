@@ -1,8 +1,10 @@
 package com.greenfox.Controller;
 
 import com.greenfox.Model.Meal;
+import com.greenfox.Model.MealStatistics;
 import com.greenfox.Model.Status;
 import com.greenfox.Repository.MealRepository;
+import com.greenfox.Service.CalorieCounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,12 @@ public class RestController {
   @Autowired
   private MealRepository mealRepository;
 
+  @Autowired
+  private MealStatistics mealStatistics;
+
+  @Autowired
+  private CalorieCounterService calorieCounterService;
+
   @GetMapping("/getmeals")
   public Iterable<Meal> getMeals() {
     return mealRepository.findAll();
@@ -27,5 +35,12 @@ public class RestController {
   public Status saveMeal(@RequestBody Meal meal) {
     mealRepository.save(meal);
     return new Status();
+  }
+
+  @GetMapping("/getstats")
+  public MealStatistics getMealStatistics() {
+    mealStatistics.setTotalCalories(calorieCounterService.totalCalorie());
+    mealStatistics.setNumberOfMeals(calorieCounterService.countMeals());
+    return mealStatistics;
   }
 }
