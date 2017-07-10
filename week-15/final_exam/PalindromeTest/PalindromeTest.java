@@ -19,4 +19,15 @@ class PalindromeTest {
     assertEquals(false, Palindrome.isPalindrome(notPalindrome));
   }
 
+  @Test
+  public void testPalindrome2WithPalindrome() throws Exception {
+    assertEquals(true, Palindrome.isPalindrome(palindrome));
+  }
+
+  @Test
+  public void testPalindrome2WithNonPalindrome() throws Exception {
+    assertEquals(false, Palindrome.isPalindrome(notPalindrome));
+  }
+
+
 }

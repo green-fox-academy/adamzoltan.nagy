@@ -7,6 +7,7 @@ public class PalindromeMain {
     String s2 = "macska";
     System.out.println(Palindrome.isPalindrome(s1));
     System.out.println(Palindrome.isPalindrome(s2));
+
   }
 
 }

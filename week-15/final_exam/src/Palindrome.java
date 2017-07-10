@@ -4,10 +4,22 @@
 public class Palindrome {
   public static boolean isPalindrome(String input) {
     String reverse = "";
-    for (int i = 0; i < input.length(); i++) {
-      reverse = reverse + input.substring(input.length()-i-1,input.length()-i);
+    int l = input.length();
+    for (int i = 0; i < l; i++) {
+      reverse = reverse + input.substring(l-i-1,l-i);
     }
     return reverse.equals(input);
+  }
+
+  public static boolean isPalindrome2(String input) {
+    int counter = 0;
+    int l = input.length();
+    for (int i = 0; i < input.length(); i++) {
+      if(input.substring(i, i+1).equals(input.substring(l-i-1,l-i))) {
+        counter ++;
+      }
+    }
+    return counter == input.length();
   }
 
 }
