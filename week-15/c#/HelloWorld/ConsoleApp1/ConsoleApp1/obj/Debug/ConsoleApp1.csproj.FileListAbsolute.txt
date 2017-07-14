@@ -1,0 +1,6 @@
+E:\Dokumentumok\GreenFox\adamzoltan.nagy\week-15\c#\HelloWorld\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+E:\Dokumentumok\GreenFox\adamzoltan.nagy\week-15\c#\HelloWorld\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+E:\Dokumentumok\GreenFox\adamzoltan.nagy\week-15\c#\HelloWorld\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+E:\Dokumentumok\GreenFox\adamzoltan.nagy\week-15\c#\HelloWorld\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
+E:\Dokumentumok\GreenFox\adamzoltan.nagy\week-15\c#\HelloWorld\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+E:\Dokumentumok\GreenFox\adamzoltan.nagy\week-15\c#\HelloWorld\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
